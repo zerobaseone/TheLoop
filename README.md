@@ -1,10 +1,10 @@
 # CS360
 
-App Summary
+**App Summary**
 
 The goal of my app was to provide users with a way to track Chicago-based live music events. Many existing event-tracking tools are overly complex or not specialized for the Chicago scene, so my focus was on building something simple and accessible. 
 
-Screens and Features
+**Screens and Features**
 
 The app includes several screens:
 
@@ -16,23 +16,23 @@ The app includes several screens:
 - User/Profile - Contains account settings and user details.
 
 
-Development Approach
+**Development Approach**
 
 I approached coding the app by breaking the project into smaller, manageable pieces. I first ensured the navigation worked between activities, then added features screen by screen, finally incorporating SMS notifications and the SQLite database. I considered object-oriented programming practices to make the code clean and modular.
 
-Testing
+**Testing**
 
 To ensure the app was functional, I tested each feature directly in the Android Studio emulator. This included verifying navigation between screens and making sure buttons were linked to the proper activity, and checking that user inputs saved properly. 
 
-Overcoming Challenges
+**Overcoming Challenges**
 
 One challenge I encountered was managing persistent data. Initially, I used SQLite for local storage to save events. However, I realized that if the app were to scale or include features like friending and sharing events, I would need another cloud-based solution (such as Firebase or to build my own server with a relational database). This forced me to think beyond the class project and consider how apps scale in professional development.
 
-Strengths and Successes
+**Strengths and Successes**
 
 I was particularly successful in implementing the SQLite databases for local event storage. This gave me hands-on experience with database integration, queries, and managing persistent user data. Additionally, I feel I succeeded in creating a clean UI that could serve as a foundation for future iterations of the app.
 
-Future Improvements
+**Future Improvements**
 
 To make the best app possible, there are several things I'd like to accomplish in the future:
 
