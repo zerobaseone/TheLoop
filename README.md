@@ -1,4 +1,5 @@
 # CS360
+Project for CS-360 - Mobile Architecture and Programming
 
 **App Summary**
 
