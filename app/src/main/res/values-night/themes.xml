@@ -1,0 +1,37 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Night theme inherits from base - already dark -->
+    <style name="Theme.TheLoopMaddieLoy" parent="Theme.MaterialComponents.NoActionBar">
+        <!-- Primary brand color - CTA Blue -->
+        <item name="colorPrimary">@color/cta_blue</item>
+        <item name="colorPrimaryVariant">@color/cta_purple</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <!-- Secondary brand color - CTA Green -->
+        <item name="colorSecondary">@color/cta_green</item>
+        <item name="colorSecondaryVariant">@color/cta_green</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <!-- Background colors -->
+        <item name="android:colorBackground">@color/background_dark</item>
+        <item name="colorSurface">@color/background_card</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+
+        <!-- Error color - CTA Red -->
+        <item name="colorError">@color/cta_red</item>
+        <item name="colorOnError">@color/white</item>
+
+        <!-- Status bar -->
+        <item name="android:statusBarColor">@color/background_nav</item>
+        <item name="android:navigationBarColor">@color/background_nav</item>
+        <item name="android:windowLightStatusBar">false</item>
+
+        <!-- Text appearance -->
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+
+        <!-- Custom styles -->
+        <item name="editTextStyle">@style/TheLoop.EditText</item>
+        <item name="materialButtonStyle">@style/TheLoop.Button</item>
+        <item name="bottomNavigationStyle">@style/TheLoop.BottomNav</item>
+    </style>
+</resources>

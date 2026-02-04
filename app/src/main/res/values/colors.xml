@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- CTA L Train Line Colors - Official Hex Codes -->
+    <color name="cta_red">#C60C30</color>
+    <color name="cta_blue">#00A1DE</color>
+    <color name="cta_green">#009B3A</color>
+    <color name="cta_orange">#F9461C</color>
+    <color name="cta_brown">#62361B</color>
+    <color name="cta_purple">#522398</color>
+    <color name="cta_pink">#E27EA6</color>
+    <color name="cta_yellow">#F9E300</color>
+
+    <!-- Dark Theme Background Colors -->
+    <color name="background_dark">#1A1A1A</color>
+    <color name="background_card">#252525</color>
+    <color name="background_elevated">#2D2D2D</color>
+    <color name="background_nav">#151515</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B3B3B3</color>
+    <color name="text_muted">#666666</color>
+
+    <!-- Accent & Interactive -->
+    <color name="accent_primary">@color/cta_blue</color>
+    <color name="accent_secondary">@color/cta_green</color>
+    <color name="accent_danger">@color/cta_red</color>
+    <color name="accent_warning">@color/cta_orange</color>
+
+    <!-- Input Field Colors -->
+    <color name="input_background">#2A2A2A</color>
+    <color name="input_stroke">#3D3D3D</color>
+    <color name="input_stroke_focused">@color/cta_blue</color>
+
+    <!-- Divider -->
+    <color name="divider">#333333</color>
+
+    <!-- Legacy colors for compatibility -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+</resources>

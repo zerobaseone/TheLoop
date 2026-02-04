@@ -1,0 +1,148 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme - Dark CTA Transit Theme -->
+    <style name="Theme.TheLoopMaddieLoy" parent="Theme.MaterialComponents.NoActionBar">
+        <!-- Primary brand color - CTA Blue -->
+        <item name="colorPrimary">@color/cta_blue</item>
+        <item name="colorPrimaryVariant">@color/cta_purple</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <!-- Secondary brand color - CTA Green -->
+        <item name="colorSecondary">@color/cta_green</item>
+        <item name="colorSecondaryVariant">@color/cta_green</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <!-- Background colors -->
+        <item name="android:colorBackground">@color/background_dark</item>
+        <item name="colorSurface">@color/background_card</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+
+        <!-- Error color - CTA Red -->
+        <item name="colorError">@color/cta_red</item>
+        <item name="colorOnError">@color/white</item>
+
+        <!-- Status bar -->
+        <item name="android:statusBarColor">@color/background_nav</item>
+        <item name="android:navigationBarColor">@color/background_nav</item>
+        <item name="android:windowLightStatusBar">false</item>
+
+        <!-- Text appearance -->
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+
+        <!-- EditText styling -->
+        <item name="editTextStyle">@style/TheLoop.EditText</item>
+
+        <!-- Button styling -->
+        <item name="materialButtonStyle">@style/TheLoop.Button</item>
+
+        <!-- Bottom Navigation styling -->
+        <item name="bottomNavigationStyle">@style/TheLoop.BottomNav</item>
+    </style>
+
+    <!-- Custom EditText Style -->
+    <style name="TheLoop.EditText" parent="Widget.MaterialComponents.TextInputEditText.OutlinedBox">
+        <item name="android:background">@drawable/edit_text_background</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textColorHint">@color/text_muted</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingTop">14dp</item>
+        <item name="android:paddingBottom">14dp</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- Primary Button Style - CTA Blue -->
+    <style name="TheLoop.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@color/cta_blue</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+
+    <!-- Secondary/Outline Button -->
+    <style name="TheLoop.Button.Secondary" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="strokeColor">@color/cta_blue</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="android:textColor">@color/cta_blue</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+
+    <!-- Danger Button - CTA Red -->
+    <style name="TheLoop.Button.Danger" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@color/cta_red</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+
+    <!-- Green Accent Button -->
+    <style name="TheLoop.Button.Green" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@color/cta_green</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+
+    <!-- Bottom Navigation Style -->
+    <style name="TheLoop.BottomNav" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:background">@color/background_nav</item>
+        <item name="itemIconTint">@color/bottom_nav_colors</item>
+        <item name="itemTextColor">@color/bottom_nav_colors</item>
+        <item name="labelVisibilityMode">labeled</item>
+        <item name="itemActiveIndicatorStyle">@style/TheLoop.BottomNav.Indicator</item>
+    </style>
+
+    <style name="TheLoop.BottomNav.Indicator" parent="">
+        <item name="android:color">@color/cta_blue</item>
+    </style>
+
+    <!-- Card Style -->
+    <style name="TheLoop.Card" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/background_card</item>
+        <item name="cardCornerRadius">12dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">@color/divider</item>
+    </style>
+
+    <!-- Title Text Styles -->
+    <style name="TheLoop.Text.Title">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:letterSpacing">-0.02</item>
+    </style>
+
+    <style name="TheLoop.Text.Subtitle">
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="TheLoop.Text.Header">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="TheLoop.Text.Body">
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="TheLoop.Text.Label">
+        <item name="android:textColor">@color/text_muted</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.08</item>
+    </style>
+</resources>

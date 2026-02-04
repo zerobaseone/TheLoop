@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Circle background - CTA Blue -->
+    <path
+        android:fillColor="#00A1DE"
+        android:pathData="M54,50m-28,0a28,28 0,1 1,56 0a28,28 0,1 1,-56 0"/>
+    <!-- L letter for "Loop" -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M44,34h7v24h13v7h-20z"/>
+</vector>
