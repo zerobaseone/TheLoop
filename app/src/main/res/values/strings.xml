@@ -1,3 +1,34 @@
 <resources>
     <string name="app_name">The Loop Maddie Loy</string>
+
+    <!-- General -->
+    <string name="app_title">The Loop</string>
+    <string name="app_subtitle">Never miss a beat in Chicago</string>
+
+    <!-- Hints (reused across multiple screens) -->
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_artist">Artist</string>
+    <string name="hint_location">Location</string>
+    <string name="hint_date">Date</string>
+
+    <!-- Buttons -->
+    <string name="btn_log_in">Log In</string>
+    <string name="btn_sign_up">Sign Up</string>
+    <string name="btn_create_account">Create Account</string>
+    <string name="btn_add_event">Add Event</string>
+    <string name="btn_add_new">Add new...</string>
+    <string name="btn_save_changes">Save Changes</string>
+
+    <!-- Screen titles -->
+    <string name="title_create_account">Create New Account</string>
+    <string name="title_upcoming_events">Upcoming Events</string>
+    <string name="title_create_event">Create New Event</string>
+    <string name="title_edit_event">Edit Event</string>
+
+    <!-- Misc -->
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="header_artist">Artist</string>
+    <string name="header_location">Location</string>
+    <string name="header_date">Date</string>
 </resources>

@@ -1,6 +1,5 @@
 package com.example.theloop;
 
-import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,60 +11,44 @@ public class EditEventActivity extends AppCompatActivity {
 
     private EditText artistEdit, locationEdit, dateEdit;
     private Button saveButton;
-    private EventDatabase db;
-    private long eventId; // Sqlite primary key of event being edited
+    private EventRepository repository;
+    private long eventId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_editevent); // your XML file
+        setContentView(R.layout.activity_editevent);
 
-        // References to UI
         artistEdit = findViewById(R.id.editTextArtist);
         locationEdit = findViewById(R.id.editTextLocation);
         dateEdit = findViewById(R.id.editTextDate);
         saveButton = findViewById(R.id.buttonSaveChanges);
 
-        db = new EventDatabase(this);
+        repository = new EventRepository(this);
 
-        // Get event ID from Intent
+        // retrieve ID of the event to edit, passed from EventAdapter via Intent
         eventId = getIntent().getLongExtra("event_id", -1);
 
+        // fetch the event from the repository and prefill the fields for editing
         if (eventId != -1) {
-            loadEventData(eventId);
+            Event event = repository.getEvent(eventId);
+            if (event != null) {
+                artistEdit.setText(event.getArtist());
+                locationEdit.setText(event.getLocation());
+                dateEdit.setText(event.getDate());
+            }
         }
 
         saveButton.setText("Save Changes");
-
+        // save the updated values to the repository and return to the event list
         saveButton.setOnClickListener(v -> {
-            saveChanges();
+            String artist = artistEdit.getText().toString().trim();
+            String location = locationEdit.getText().toString().trim();
+            String date = dateEdit.getText().toString().trim();
+
+            repository.updateEvent(eventId, artist, location, date);
+            Toast.makeText(this, "Event updated", Toast.LENGTH_SHORT).show();
+            finish();
         });
-    }
-
-    private void loadEventData(long id) {
-        Cursor cursor = db.getAllEvents();
-        if (cursor != null && cursor.moveToFirst()) {
-            do {
-                long currentId = cursor.getLong(cursor.getColumnIndexOrThrow(EventDatabase.EventTable.COL_ID));
-                if (currentId == id) {
-                    artistEdit.setText(cursor.getString(cursor.getColumnIndexOrThrow(EventDatabase.EventTable.COL_ARTIST)));
-                    locationEdit.setText(cursor.getString(cursor.getColumnIndexOrThrow(EventDatabase.EventTable.COL_LOCATION)));
-                    dateEdit.setText(cursor.getString(cursor.getColumnIndexOrThrow(EventDatabase.EventTable.COL_DATE)));
-                    break;
-                }
-            } while (cursor.moveToNext());
-            cursor.close();
-        }
-    }
-
-    private void saveChanges() {
-        String newArtist = artistEdit.getText().toString().trim();
-        String newLocation = locationEdit.getText().toString().trim();
-        String newDate = dateEdit.getText().toString().trim();
-
-        db.updateEvent(eventId, newArtist, newLocation, newDate);
-
-        Toast.makeText(this, "Event updated", Toast.LENGTH_SHORT).show();
-        finish();
     }
 }

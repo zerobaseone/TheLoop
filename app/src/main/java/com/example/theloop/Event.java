@@ -1,7 +1,7 @@
 package com.example.theloop;
 
 public class Event {
-    private long id; // SQLite primary key
+    private long id; // SQLite primary key - change with Firestore
     private String artist;
     private String location;
     private String date;

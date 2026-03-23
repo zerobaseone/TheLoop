@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="start"
-        android:text="Artist"
+        android:text="@string/hint_artist"
         android:textSize="17sp"
         android:textStyle="bold"
         android:textColor="#009b3a"
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="start"
-        android:text="Location"
+        android:text="@string/hint_location"
         android:textSize="17sp"
         android:paddingEnd="8dp" />
 
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="start"
-        android:text="Date"
+        android:text="@string/hint_date"
         android:textSize="17sp"
         android:paddingEnd="8dp" />
 

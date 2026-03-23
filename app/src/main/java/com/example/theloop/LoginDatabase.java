@@ -1,3 +1,5 @@
+// NO LONGER USED - Can be deleted once Firebase Auth is confirmed working.
+
 package com.example.theloop;
 
 import android.content.ContentValues;

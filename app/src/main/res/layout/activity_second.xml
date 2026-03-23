@@ -14,7 +14,7 @@
         android:layout_marginTop="86dp"
         android:layout_marginEnd="73dp"
         android:layout_marginBottom="38dp"
-        android:text="Upcoming Events"
+        android:text="@string/title_upcoming_events"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/headerRow"
         app:layout_constraintEnd_toStartOf="@+id/AddNewButton"
@@ -28,7 +28,7 @@
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginEnd="16dp"
-        android:text="Add new..."
+        android:text="@string/btn_add_new"
         app:layout_constraintBottom_toBottomOf="@+id/secondScreenText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/secondScreenText"
@@ -50,7 +50,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Artist"
+            android:text="@string/header_artist"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -58,7 +58,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Location"
+            android:text="@string/header_location"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -66,7 +66,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Date"
+            android:text="@string/header_date"
             android:textSize="16sp"
             android:textStyle="bold" />
 
