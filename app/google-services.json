@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "430887654765",
+    "project_id": "the-loop-f5331",
+    "storage_bucket": "the-loop-f5331.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:430887654765:android:c6cc74a508d0b3d2fcf664",
+        "android_client_info": {
+          "package_name": "com.example.theloop"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2hSeRxuj8-hANIIND1_INY6jSWixv4UU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
