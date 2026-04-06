@@ -23,7 +23,7 @@ public class NewEventActivity extends AppCompatActivity {
         dateEdit = findViewById(R.id.editTextDate);
         saveButton = findViewById(R.id.buttonAddEvent);
 
-        repository = new EventRepository(this);
+        repository = new EventRepository();
 
         // read input fields, validate, save to repository, and return to event list
         saveButton.setOnClickListener(v -> {

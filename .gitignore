@@ -7,10 +7,15 @@
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
-/.claude
 .DS_Store
 /build
 /captures
 .externalNativeBuild
 .cxx
 local.properties
+
+# seed script for seeding database/credentials 
+seed.js
+
+node_modules/
+*firebase-adminsdk*.json

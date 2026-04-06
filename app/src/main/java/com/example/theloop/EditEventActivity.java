@@ -12,7 +12,7 @@ public class EditEventActivity extends AppCompatActivity {
     private EditText artistEdit, locationEdit, dateEdit;
     private Button saveButton;
     private EventRepository repository;
-    private long eventId;
+    private String eventId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,27 +24,39 @@ public class EditEventActivity extends AppCompatActivity {
         dateEdit = findViewById(R.id.editTextDate);
         saveButton = findViewById(R.id.buttonSaveChanges);
 
-        repository = new EventRepository(this);
+        repository = new EventRepository();
 
-        // retrieve ID of the event to edit, passed from EventAdapter via Intent
-        eventId = getIntent().getLongExtra("event_id", -1);
+        // Retrieve the Firestore document ID passed from EventAdapter
+        eventId = getIntent().getStringExtra("event_id");
 
-        // fetch the event from the repository and prefill the fields for editing
-        if (eventId != -1) {
-            Event event = repository.getEvent(eventId);
-            if (event != null) {
-                artistEdit.setText(event.getArtist());
-                locationEdit.setText(event.getLocation());
-                dateEdit.setText(event.getDate());
-            }
+        // Fetch event from Firestore and pre-fill fields for editing
+        if (eventId != null) {
+            repository.getEvent(eventId, new EventRepository.EventCallback() {
+                @Override
+                public void onSuccess(Event event) {
+                    artistEdit.setText(event.getArtist());
+                    locationEdit.setText(event.getLocation());
+                    dateEdit.setText(event.getDate());
+                }
+
+                @Override
+                public void onError(Exception e) {
+                    Toast.makeText(EditEventActivity.this, "Failed to load event", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            });
         }
 
         saveButton.setText("Save Changes");
-        // save the updated values to the repository and return to the event list
         saveButton.setOnClickListener(v -> {
             String artist = artistEdit.getText().toString().trim();
             String location = locationEdit.getText().toString().trim();
             String date = dateEdit.getText().toString().trim();
+
+            if (artist.isEmpty() || location.isEmpty() || date.isEmpty()) {
+                Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
             repository.updateEvent(eventId, artist, location, date);
             Toast.makeText(this, "Event updated", Toast.LENGTH_SHORT).show();

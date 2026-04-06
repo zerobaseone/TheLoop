@@ -1,6 +1,7 @@
 package com.example.theloop;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,25 +12,34 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHolder> {
 
-    // Signals delete requrests to the activity without needing a reference to the database
     public interface OnDeleteClickListener {
         void onDeleteClick(Event event);
     }
 
-    private ArrayList<Event> eventList;
-    private final OnDeleteClickListener deleteListener; //handles the actual deletion
+    public interface OnStarClickListener {
+        void onStarClick(Event event, boolean isCurrentlyStarred);
+    }
 
-    public EventAdapter(ArrayList<Event> events, OnDeleteClickListener deleteListener) {
+    private ArrayList<Event> eventList;
+    private Set<String> starredIds;
+    private final OnStarClickListener starListener;
+    private final OnDeleteClickListener deleteListener; // null = hide delete button
+
+    public EventAdapter(ArrayList<Event> events, Set<String> starredIds,
+                        OnStarClickListener starListener, OnDeleteClickListener deleteListener) {
         this.eventList = events;
+        this.starredIds = starredIds != null ? starredIds : new HashSet<>();
+        this.starListener = starListener;
         this.deleteListener = deleteListener;
     }
 
     @NonNull
     @Override
-    // creates the live View objects
     public EventViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.event_row, parent, false);
@@ -37,7 +47,6 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
     }
 
     @Override
-    // this is called by RecyclerView for each visible row & binds event data to the ui views
     public void onBindViewHolder(@NonNull EventViewHolder holder, int position) {
         Event currentEvent = eventList.get(position);
 
@@ -45,17 +54,32 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
         holder.locationText.setText(currentEvent.getLocation());
         holder.dateText.setText(currentEvent.getDate());
 
-        // Edit Event: click on artist name
+        // Edit event: click on artist name
         holder.artistText.setOnClickListener(v -> {
             Intent intent = new Intent(v.getContext(), EditEventActivity.class);
             intent.putExtra("event_id", currentEvent.getId());
             v.getContext().startActivity(intent);
         });
 
-        // Delete event: notify the activity via callback
-        holder.deleteButton.setOnClickListener(v -> {
-            deleteListener.onDeleteClick(currentEvent);
+        // Star button: filled gold if starred, empty gray if not
+        boolean isStarred = starredIds.contains(currentEvent.getId());
+        holder.starButton.setText(isStarred ? "★" : "☆");
+        holder.starButton.setBackgroundTintList(
+                android.content.res.ColorStateList.valueOf(
+                        isStarred ? Color.parseColor("#FFB300") : Color.parseColor("#888888")
+                )
+        );
+        holder.starButton.setOnClickListener(v -> {
+            if (starListener != null) starListener.onStarClick(currentEvent, isStarred);
         });
+
+        // Delete button: hidden if no delete listener (e.g. My Events screen)
+        if (deleteListener == null) {
+            holder.deleteButton.setVisibility(View.GONE);
+        } else {
+            holder.deleteButton.setVisibility(View.VISIBLE);
+            holder.deleteButton.setOnClickListener(v -> deleteListener.onDeleteClick(currentEvent));
+        }
     }
 
     @Override
@@ -63,23 +87,27 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
         return eventList.size();
     }
 
-    // Caches view references for each row to avoid repeated findViewById calls while scrolling
     public static class EventViewHolder extends RecyclerView.ViewHolder {
         TextView artistText, locationText, dateText;
-        Button deleteButton;
+        Button starButton, deleteButton;
 
         public EventViewHolder(@NonNull View itemView) {
             super(itemView);
             artistText = itemView.findViewById(R.id.eventArtist);
             locationText = itemView.findViewById(R.id.eventLocation);
             dateText = itemView.findViewById(R.id.eventDate);
+            starButton = itemView.findViewById(R.id.starButton);
             deleteButton = itemView.findViewById(R.id.deleteButton);
         }
     }
 
-    // called after add, delete, or edit; replaces the event list and re-renders the RecyclerView
     public void updateEvents(ArrayList<Event> newEvents) {
         this.eventList = newEvents;
+        notifyDataSetChanged();
+    }
+
+    public void updateStarredIds(Set<String> newStarredIds) {
+        this.starredIds = newStarredIds != null ? newStarredIds : new HashSet<>();
         notifyDataSetChanged();
     }
 }
